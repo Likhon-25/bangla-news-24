@@ -13,7 +13,7 @@ const Navlinks = async () => {
   const data = await res.json();
   const navs: NavItem[] = data.data;
   const filterednavs = navs.filter((n : NavItem) => n.scrapable);
-  console.log(filterednavs);
+//   console.log(filterednavs);
 
   return (
     <div className="flex  gap-5 justify-center mt-5">
