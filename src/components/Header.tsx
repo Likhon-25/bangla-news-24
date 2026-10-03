@@ -1,5 +1,6 @@
 import { Button } from "@heroui/react";
 import Image from "next/image";
+import Navlinks from "./Navlinks";
 
 const Header = () => {
   const date = new Date().toLocaleDateString("bn-BD", {
@@ -35,6 +36,8 @@ const Header = () => {
           <Button variant="danger">সাইন আপ</Button>
         </div>
       </div>
+
+      <Navlinks />
     </header>
   );
 };
