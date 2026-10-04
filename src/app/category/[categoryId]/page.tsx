@@ -1,6 +1,14 @@
 import NewsCart from "@/components/NewsCart";
 
-const CategoryPage = async ({ params }) => {
+interface ICategoryPage {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+    imageUrl: string;
+    imageAlt: string
+}
+const CategoryPage = async ({ params }: {params: {categoryId : ICategoryPage}}) => {
   const { categoryId } = await params;
 
   const res = await fetch(
@@ -8,16 +16,14 @@ const CategoryPage = async ({ params }) => {
   );
   const data = await res.json();
   const categoryNews = data.data;
-  console.log(categoryNews);
+//   console.log(categoryNews);
   return (
     <div>
       <h1 className=" text-2xl font-bold border-b-2 border-red-700 max-w-7xl mx-auto m-5">{data.title}</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-7xl mx-auto m-5">
         {
-            categoryNews.map(CN => <NewsCart key={CN._id} news={CN} /> 
-
-        )
+            categoryNews.map((CN : ICategoryPage) => <NewsCart key={CN.id} news={CN} />)
         }
       </div>
     </div>

@@ -9,7 +9,7 @@ const MostRead = async () => {
   );
   const data = await resdata.json();
   const mostReadNews: IMostRead[] = data.data;
-  console.log("Most read data", mostReadNews);
+  // console.log("Most read data", mostReadNews);
 
   return (
     <div className="bg-white rounded-lg">
