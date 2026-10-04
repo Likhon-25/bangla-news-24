@@ -1,6 +1,7 @@
 import { Button } from "@heroui/react";
 import Image from "next/image";
 import Navlinks from "./Navlinks";
+import Link from "next/link";
 
 const Header = () => {
   const date = new Date().toLocaleDateString("bn-BD", {
@@ -21,7 +22,9 @@ const Header = () => {
           />
 
           <div>
-            <h2 className="text-xl font-bold text-red-700">Bangla News 24</h2>
+            <Link href="/" className="text-xl font-bold text-red-700">
+              Bangla News 24
+            </Link>
 
             <p className="text-sm text-gray-600">{date}</p>
           </div>
