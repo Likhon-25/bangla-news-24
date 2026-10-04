@@ -1,5 +1,6 @@
 import MainNews from "@/components/MainNews";
 import Marquee from "@/components/Marquee";
+import MostRead from "@/components/MostRead";
 import NewsCart from "@/components/NewsCart";
 
 interface IOtherSection {
@@ -19,9 +20,9 @@ export default async function Home() {
   const res = await fetch("https://news-api-v2.vercel.app/api/news/sections");
   const data = await res.json();
   const sections = data.data;
-  console.log(sections);
+  // console.log(sections);
   const mainNews = sections[0].articles;
-  console.log(mainNews);
+  // console.log(mainNews);
 
   const otherSections: IOtherSection[] = sections.slice(1);
   // console.log(otherSections);
@@ -29,7 +30,7 @@ export default async function Home() {
     <div>
       <Marquee />
 
-      <div className="grid grid-cols-3 max-w-7xl mx-auto">
+      <div className="grid grid-cols-3 gap-5 max-w-7xl mx-auto mt-5 ">
         {/* news section */}
         <div className="col-span-2">
           <MainNews news={mainNews} />
@@ -54,7 +55,9 @@ export default async function Home() {
         </div>
 
         {/* most read section */}
-        <div className="bg-green-500 col-span-1 "></div>
+        <div className="border border-gray-300 rounded-lg p-5 col-span-1 ">
+          <MostRead />
+        </div>
       </div>
     </div>
   );

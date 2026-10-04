@@ -16,7 +16,7 @@ const MainNews = ({ news } : { news: News[] }) => {
   //   const otherNews = news.slice(1);
   //   console.log(otherNews);
   return (
-    <div className="flex gap-2 mt-5">
+    <div className="flex gap-2">
       {/* main news */}
       <div className="card bg-base-100 w-150  border border-gray-300 rounded-lg">
         <figure>
