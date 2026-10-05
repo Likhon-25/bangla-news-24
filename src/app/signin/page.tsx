@@ -1,10 +1,10 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
-import { Toast } from "@heroui/react";
 import { redirect } from "next/navigation";
 import { toast } from "react-toastify";
 
 const SignInPage = () => {
+
   const onSubmit = async (e: React.SubmitEvent<HTMLElement>) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -28,6 +28,13 @@ const SignInPage = () => {
       console.log(error);
     }
   };
+
+  const handleGoogleSignIn = async () =>{
+    const data = await authClient.signIn.social({
+    provider: "google",
+  });
+  }
+
   return (
     <div>
       <div className=" flex flex-col items-center justify-center mt-5">
@@ -55,6 +62,12 @@ const SignInPage = () => {
             </button>
           </fieldset>
         </form>
+
+        {/* Authenticatin with google and github */}
+        <div className="flex gap-5">
+          <button onClick={handleGoogleSignIn} className=" btn btn-error">Sign In With Google</button>
+          <button className=" btn btn-error">Sign In With Github</button>
+        </div>
       </div>
     </div>
   );

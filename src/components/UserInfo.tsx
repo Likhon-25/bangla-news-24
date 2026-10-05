@@ -16,7 +16,7 @@ const UserInfo = () => {
     <div className="absolute right-4 flex items-center">
       {user ? (
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col items-center gap-1">
             <div className="avatar">
               <div className="ring-primary ring-offset-base-100 w-10 overflow-hidden rounded-full ring-2 ring-offset-2">
                 <Image
@@ -32,7 +32,7 @@ const UserInfo = () => {
               </div>
             </div>
 
-            <h2 className="whitespace-nowrap text-sm font-semibold text-gray-800">
+            <h2 className="whitespace-nowrap text-center text-sm font-semibold text-gray-800">
               {user?.name}
             </h2>
           </div>

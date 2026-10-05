@@ -6,8 +6,14 @@ const client = new MongoClient(process.env.MONGODB_URL as string);
 const db = client.db("bangla-news-24");
 
 export const auth = betterAuth({
-   emailAndPassword: { 
-    enabled: true, 
+  emailAndPassword: {
+    enabled: true,
+  },
+  socialProviders: {
+    google: {
+      clientId: process.env.BETTER_AUTH_GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.BETTER_AUTH_GOOGLE_CLIENT_SECRET as string,
+    },
   },
   database: mongodbAdapter(db, {
     client,
