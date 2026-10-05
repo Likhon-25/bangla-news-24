@@ -23,8 +23,8 @@ const SignUpPage = () => {
     }
     if(error){
       console.log(error);
+      alert('User already exists. Use another email.')
     }
-    alert('User already exists. Use another email.')
   }
   return (
     <div>
