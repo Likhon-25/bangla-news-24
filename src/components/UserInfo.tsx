@@ -1,7 +1,6 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
 import { Button } from "@heroui/react";
-import Image from "next/image";
 import Link from "next/link";
 
 const UserInfo = () => {
@@ -17,9 +16,11 @@ const UserInfo = () => {
       {user ? (
         <div className="flex items-center gap-3">
           <div className="flex flex-col items-center gap-1">
+            <Link href={"/profile"}>
             <div className="avatar">
               <div className="ring-primary ring-offset-base-100 w-10 overflow-hidden rounded-full ring-2 ring-offset-2">
-                <Image
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   alt="User Image"
                   src={
                     user?.image ||
@@ -31,6 +32,7 @@ const UserInfo = () => {
                 />
               </div>
             </div>
+            </Link>
 
             <h2 className="whitespace-nowrap text-center text-sm font-semibold text-gray-800">
               {user?.name}
