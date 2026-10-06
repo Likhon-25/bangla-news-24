@@ -1,13 +1,21 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { useState } from "react";
 
 const ProfilePage = () => {
-  const { data: session } = authClient.useSession();
+  const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
+  const [show, setShow] = useState(false);
 
-  const [show , setShow] = useState(false)
+  if (isPending) {
+    return <p>প্রোফাইল লোড হচ্ছে...</p>;
+  }
+
+  if (!user) {
+    redirect("/signin")
+  }
 
 
   const handleUpdateProfile =async(e: React.SubmitEvent<HTMLElement>) =>{
