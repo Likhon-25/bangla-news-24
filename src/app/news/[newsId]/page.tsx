@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 interface NewsBodyItem {
   type: "text" | "image";
@@ -46,6 +47,9 @@ const NewsDetails = async ({ params }: PageProps) => {
 
   const data = await res.json();
   const news: NewsDetailsData = data.data;
+  if(!news){
+    notFound()
+  }
 
   const publishedDate = new Date(news.firstPublished).toLocaleDateString(
     "bn-BD",

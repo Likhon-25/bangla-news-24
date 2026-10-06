@@ -1,4 +1,5 @@
 import NewsCart from "@/components/NewsCart";
+import { notFound } from "next/navigation";
 
 interface ICategoryPage {
   id: string;
@@ -16,6 +17,10 @@ const CategoryPage = async ({ params }: {params: {categoryId : ICategoryPage}}) 
   );
   const data = await res.json();
   const categoryNews = data.data;
+
+  if(!categoryNews){
+    notFound()
+  }
 //   console.log(categoryNews);
   return (
     <div>
